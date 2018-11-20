@@ -119,11 +119,11 @@ public class FunktionenDialog
          {
              ergebnis=funktion.berechneNullstellen(p,q);
          }
-         if (d > -0.000000000000001 && d<0.000000000000001)
+         if (d > -0.000000000000001 && d<0.000000000000001)  // else if würde hier nicht klappen oder?
          {
              ergebnis=funktion.berechneNullstelle(p);
          }
-         if (d < 0.0)
+         if (d < 0.0)                                         // else if? 
          {
              ergebnis = "\nKomplexe Nullstelle!";
          }
