@@ -6,14 +6,14 @@
  * @version Ueb03
  */
 public class Funktionen
-{   
+{
     private static final String msg1 = "Hier bitte eine positive ganze Zahl eingeben.";
     private static final String msg2 = "Hier bitte eine neunstellige Zahl eingeben.";
     /**
      * Standardkonstruktor der Klasse Funktionen
      */
     public Funktionen()
-    {  
+    {
     }
 
     /**
@@ -22,22 +22,23 @@ public class Funktionen
      * @param  natuerliche Zahl (>=0)
      * @return teilersumme
      */
+
     public static int berechneTeilersumme(int y)
     {
         check((y>=0),msg1);
-        int i, teilersumme;      
-        
+        int i, teilersumme;
+
         for(i =1,teilersumme=0;i*i<y;i++)
         {
             if (y % i == 0)
             {
                 teilersumme+=i+y/i;
-            } 
-            
+            }
+
         }
         return teilersumme;
     }
-    
+
     /**
      * Zweite Funktion: Pruefziffer fuer ISBN berechnen.
      *
@@ -47,16 +48,16 @@ public class Funktionen
     public static String berechnePruefziffer(long isbn)
     {
        String s =String.valueOf(isbn);
-       
+
        check(((isbn > 0) && (isbn < 999999999) && (s.length()==9)),msg2);
-       
+
        long summe=0;
        for(int i=9;i>0;i--)
        {
            summe +=(isbn % 10) *i;
            isbn = isbn/10;
        }
-         
+
        if (summe % 11 == 10)
          {
           return s+"-X";
@@ -77,14 +78,14 @@ public class Funktionen
     {
         double nullstelle1 = 0;
         double nullstelle2 = 0;
-        
+
         nullstelle1 = -(p/2)- Math.sqrt((p/2)*(p/2)-q);
         nullstelle2 = -(p/2)+ Math.sqrt((p/2)*(p/2)-q);
-                     
+
         String nullstelle="Nullstellen sind: "+nullstelle1+" und "+nullstelle2;
         return nullstelle;
     }
-    
+
     /**
      * Dritte Funktion: Nullstellen fuer quadtratische Gleichung berechnen mittels p-q Formel. Fall: D=0: Es gibt 1 Nullstelle.
      *
@@ -94,13 +95,13 @@ public class Funktionen
     public static String berechneNullstelle(double p)
     {
         double nullstelleDoppelt = -(p/2.0);
-                     
+
         String doppelteNullstelle="Doppelte Nullstelle bei: "+nullstelleDoppelt;
         return doppelteNullstelle;
     }
-    
+
     /**
-     * Check-Methode um Fehler zu erkennen und als 
+     * Check-Methode um Fehler zu erkennen und als
      * IllegalArgumentException auszuwerfen.
      */
     private static void check(boolean bedingung, String error)
@@ -108,5 +109,5 @@ public class Funktionen
         if (!bedingung)
            throw new IllegalArgumentException(error);
     }
-  
+
 }
